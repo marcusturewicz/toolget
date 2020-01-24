@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 export default class Tool extends React.Component {
 
   render() {
-    console.log(this.props.value);
     return (
       <Card className="card">
         <CardContent>
