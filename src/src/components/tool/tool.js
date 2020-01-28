@@ -21,6 +21,12 @@ export default class Tool extends React.Component {
           <Typography className="title" color="textSecondary" gutterBottom>
             Description: {this.trimString(this.props.value.description, 200)}
           </Typography>
+          <Typography className="title" color="textSecondary" gutterBottom>
+            Latest version: {this.props.value.version}
+          </Typography>
+          <Typography className="title" color="textSecondary" gutterBottom>
+            Authors: {this.props.value.authors.join(',')}
+          </Typography>          
         </CardContent>
         <CardActions>
           <a href={`https://nuget.org/packages/${this.props.value.id}`} target="_blank" rel="noopener noreferrer">View on NuGet</a>
