@@ -20,7 +20,7 @@ export default class Search extends React.Component {
             if (event.key === 'Enter') {
                 this.setState({ loading: true });
                 const q = event.target.value;
-                axios.get('https://azuresearch-usnc.nuget.org/query?q=' + q + '&packageType=DotnetTool&skip=0&take=20').then(response => {
+                axios.get(`https://azuresearch-usnc.nuget.org/query?q=${q}&packageType=DotnetTool&skip=0&take=20`).then(response => {
                     this.setState({ hasSearched: true })
                     if (response.data.data.length > 0)
                         this.setState({ hasData: true })
@@ -32,7 +32,7 @@ export default class Search extends React.Component {
         return (
             <div>
                 <FormControl fullWidth>
-                    <InputLabel htmlFor="search-bar">.NET global tool</InputLabel>
+                    <InputLabel htmlFor="search-bar">Search for .NET tools...</InputLabel>
                     <Input
                         id="search-bar"
                         onKeyDown={handleKeyPress}
