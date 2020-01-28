@@ -44,7 +44,7 @@ export default class Search extends React.Component {
                         <br />
                         {this.state.tools.map(data => <div><Tool key={data.id} value={data}></Tool><br /></div>)}
                     </div>}
-                {this.state.tools && this.state.tools.length == 0 && <p hidden={!this.state.tools}>0 results could be found.</p>}
+                {this.state.tools && this.state.tools.length === 0 && <p hidden={!this.state.tools}>0 results could be found.</p>}
             </div>
         )
     }

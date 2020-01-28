@@ -22,7 +22,7 @@ export default class Tool extends React.Component {
           </Typography>
         </CardContent>
         <CardActions>
-          <a href={"https://nuget.org/packages/" + this.props.value.id} target="_blank" rel="noopener noreferrer">View on NuGet</a>
+          <a href={`https://nuget.org/packages/${this.props.value.id}`} target="_blank" rel="noopener noreferrer">View on NuGet</a>
         </CardActions>
       </Card>
     );
