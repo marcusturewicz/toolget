@@ -6,6 +6,10 @@ import Typography from '@material-ui/core/Typography';
 
 export default class Tool extends React.Component {
 
+  trimString(input, chars) {
+    return input.length > chars ? `${input.substring(0,chars)}...` : input;
+  }
+
   render() {
     return (
       <Card className="card">
@@ -15,10 +19,7 @@ export default class Tool extends React.Component {
             Package name: {this.props.value.id}
           </Typography>
           <Typography className="title" color="textSecondary" gutterBottom>
-            Summary: {this.props.value.summary}
-          </Typography>
-          <Typography className="title" color="textSecondary" gutterBottom>
-            Description: {this.props.value.description}
+            Description: {this.trimString(this.props.value.description, 200)}
           </Typography>
         </CardContent>
         <CardActions>
