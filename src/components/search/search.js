@@ -23,7 +23,16 @@ export default class Search extends React.Component {
   componentDidMount() {
     const qs = queryString.parse(this.props.location.search);
     if ('q' in qs) {
-      this.setState({ search: qs.q }, () => this.search());
+      this.setState({ search: qs.q }, () => this.searchAndUpdateHistory());
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.search !== nextProps.location.search) {
+      const qs = queryString.parse(nextProps.location.search);
+      if ('q' in qs) {
+        this.setState({ search: qs.q }, () => this.search());
+      }
     }
   }
 
@@ -44,22 +53,25 @@ export default class Search extends React.Component {
     });
   }
 
+  searchAndUpdateHistory() {
+    this.search();
+    this.props.history.push({ search: `?q=${this.state.search}`, pathname: '/tools' });
+  }
+
   render() {
     const handleKeyPress = (event) => {
       if (event.key === 'Enter') {
-        this.setState({ page: 0, newSearch: true }, () => this.search());
+        this.setState({ page: 0, newSearch: true }, () => this.searchAndUpdateHistory());
       }
     }
     const handleSearchClicked = () => {
-      this.setState({ page: 0, newSearch: true }, () => this.search());
+      this.setState({ page: 0, newSearch: true }, () => this.searchAndUpdateHistory());
     }
     const onLoadMoreClicked = () => {
       this.setState({ page: this.state.page + 1, newSearch: false }, () => this.search());
     }
     const updateInputValue = (event) => {
-      this.setState({
-        search: event.target.value
-      }, () => this.props.history.push({ search: `?q=${this.state.search}`, pathname: '/tools' }));
+      this.setState({ search: event.target.value });
     }
     return (
       <div>
@@ -70,6 +82,7 @@ export default class Search extends React.Component {
             onChange={updateInputValue}
             variant="outlined"
             label="Search for .NET Tools..."
+            placeholder="e.g. formatting tool"
             onKeyDown={handleKeyPress}
             autoFocus
             InputProps={{
