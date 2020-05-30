@@ -6,19 +6,7 @@ import queryString from 'query-string'
 
 export default class Search extends React.Component {
 
-  constructor() {
-    super()
-    this.state = {
-      tools: [],
-      loading: false,
-      hasSearched: false,
-      hasMoreResults: false,
-      page: 0,
-      pageSize: 20,
-      search: '',
-      newSearch: true,
-    }
-  }
+
 
   componentDidMount() {
     const qs = queryString.parse(this.props.location.search);
@@ -36,65 +24,20 @@ export default class Search extends React.Component {
     }
   }
 
-  search() {
-    this.setState({ loading: true }, () => {
-      const pageSkip = this.state.page * this.state.pageSize;
-      fetch(`https://azuresearch-usnc.nuget.org/query?q=${this.state.search}&packageType=DotnetTool&skip=${pageSkip}&take=${this.state.pageSize}`).then(resp => {
-        resp.json().then(response => {
-          const tools = this.state.newSearch ? response.data : this.state.tools.concat(response.data);
-          this.setState({
-            tools: tools,
-            loading: false,
-            hasSearched: true,
-            hasMoreResults: response.totalHits > tools.length
-          });
-        })
-      });
-    });
-  }
-
   searchAndUpdateHistory() {
     this.search();
     this.props.history.push({ search: `?q=${this.state.search}`, pathname: '/tools' });
   }
 
   render() {
-    const handleKeyPress = (event) => {
-      if (event.key === 'Enter') {
-        this.setState({ page: 0, newSearch: true }, () => this.searchAndUpdateHistory());
-      }
-    }
-    const handleSearchClicked = () => {
-      this.setState({ page: 0, newSearch: true }, () => this.searchAndUpdateHistory());
-    }
+
     const onLoadMoreClicked = () => {
       this.setState({ page: this.state.page + 1, newSearch: false }, () => this.search());
     }
-    const updateInputValue = (event) => {
-      this.setState({ search: event.target.value });
-    }
+
     return (
       <div>
         <FormControl id="search-form" fullWidth>
-          <TextField
-            id="search-input"
-            value={this.state.search}
-            onChange={updateInputValue}
-            variant="outlined"
-            label="Search for .NET Tools..."
-            placeholder="e.g. formatting tool"
-            onKeyDown={handleKeyPress}
-            autoFocus
-            InputProps={{
-              endAdornment: (
-                <InputAdornment onClick={handleSearchClicked}>
-                  <IconButton aria-label="Search button">
-                    <SearchIcon />
-                  </IconButton>
-                </InputAdornment>
-              )
-            }}
-          />
         </FormControl>
         {this.state.loading && <LinearProgress />}
         {this.state.tools.length > 0 &&
