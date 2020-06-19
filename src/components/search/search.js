@@ -25,6 +25,8 @@ export default class Search extends React.Component {
     if ('q' in qs) {
       this.setState({ search: qs.q }, () => this.searchAndUpdateHistory());
     }
+    else
+      this.search();
   }
 
   componentWillReceiveProps(nextProps) {
