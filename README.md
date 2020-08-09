@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/marcusturewicz/toolget"><img src="img/toolget.png" alt="Image of ToolGet website" height="250"/></a></p>
+<p align="center"><a href="https://github.com/marcusturewicz/toolget"><img src="img/toolget.png" alt="Image of ToolGet website"/></a></p>
 <p align="center">Search for .NET Tools from NuGet: https://www.toolget.net</p>
 
 <div align="center">
