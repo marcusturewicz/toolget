@@ -1,15 +1,12 @@
-# ToolGet
+<p align="center"><a href="https://github.com/marcusturewicz/toolget"><img src="img/toolget.png" alt="Image of ToolGet website" height="250"/></a></p>
+<p align="center">Search for .NET Tools from NuGet: https://www.toolget.net</p>
 
-![](public/apple-icon-114x114.png)
-
-Search for .NET Tools from NuGet: https://www.toolget.net
-
- ![](img/toolget.png)
-
-## Build status
+<div align="center">
 
 ![build status](https://github.com/marcusturewicz/toolget/workflows/CI/badge.svg)
 ![build status](https://github.com/marcusturewicz/toolget/workflows/CD/badge.svg)
+
+</div>
 
 ## Get Started
 
