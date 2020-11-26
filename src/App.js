@@ -61,21 +61,14 @@ export default function Album() {
                 <Typography variant="h6" className={classes.title}>
                   ToolGet
                 </Typography>
-                <Button color="inherit" href="https://github.com/marcusturewicz/toolget/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
-                <Button color="inherit" href="https://github.com/marcusturewicz/toolget/issues/new/choose" target="_blank" rel="noopener noreferrer" >Feeback</Button>
               </Toolbar>
             </Container>
           </AppBar>
         </div>
         <main>
           <Container className={classes.cardGrid} maxWidth="md">
-            <Router>
-              <Switch>
-                <Route exact path="/" component={Search} />
-                <Route path="/tools" component={Search} />
-                <Route component={NotFound} />
-              </Switch>
-            </Router>
+          <h1>ToolGet is being deprecated in favour of the official .NET Tool search experiences from <a href="https://www.nuget.org/packages?packagetype=dotnettool">NuGet.org</a> and <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-search">.NET CLI</a>.</h1>
+          <h2>This site will shutdown on 10th Dec 2020</h2>
           </Container>
         </main>
       </React.Fragment>
