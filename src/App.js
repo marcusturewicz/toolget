@@ -5,10 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Search from './components/search/search'
-import { Button, IconButton } from '@material-ui/core';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NotFound from './components/not-found/not-found';
+import { IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
