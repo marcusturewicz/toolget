@@ -1,4 +1,4 @@
-> ToolGet has been archived. To search for .NET Tools, use of the official .NET Tool search experiences from [NuGet.org](https://www.nuget.org/packages?packagetype=dotnettool) or .NET CLI(https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-search).
+> ToolGet has been archived. To search for .NET Tools, use of the official .NET Tool search experiences from [NuGet.org](https://www.nuget.org/packages?packagetype=dotnettool) or [.NET CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-search).
 
 <p align="center"><a href="https://github.com/marcusturewicz/toolget"><img src="img/toolget.png" alt="Image of ToolGet website"/></a></p>
 <p align="center">Search for .NET Tools from NuGet: https://www.toolget.net</p>
